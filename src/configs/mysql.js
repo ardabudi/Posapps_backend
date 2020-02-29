@@ -1,6 +1,4 @@
-const {
-  database
-} = require('./index')
+const { database } = require('./index')
 const mysql = require('mysql')
 
 const connection = mysql.createConnection(database)

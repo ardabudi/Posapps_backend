@@ -4,8 +4,12 @@ const miscHelper = require('../helpers')
 module.exports = {
   getCategory: async (request, response) => {
     try {
+      const limit = request.query.limit || 10
+      const activePage = request.query.page || 1
       const searchName = request.query.name || ''
-      const result = await categoryModel.getCategory(searchName)
+      const sortBy = request.query.sortBy || 'id'
+      const orderBy = request.query.orderBy || 'ASC'
+      const result = await categoryModel.getCategory(limit, activePage, searchName, sortBy, orderBy)
       miscHelper.response(response, 200, result)
     } catch (error) {
       console.log(error)
