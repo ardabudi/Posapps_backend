@@ -16,6 +16,7 @@ module.exports = {
         email: request.body.email,
         salt: hashPassword.salt,
         password: hashPassword.passwordHash,
+        status: request.body.status,
         created_at: new Date(),
         updated_at: new Date()
       }
@@ -49,7 +50,7 @@ module.exports = {
 
       dataUser.token = token
 
-      response.json(dataUser)
+      helper.response(response, 200, dataUser)
     } else {
       response.json({
         message: 'Login error!'

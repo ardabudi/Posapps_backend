@@ -6,6 +6,8 @@ const {
   login
 } = require('../controllers/user')
 
+const { authentication, authorization } = require('../helpers/auth')
+
 Route
   .post('/register', register)
   .post('/login', login)

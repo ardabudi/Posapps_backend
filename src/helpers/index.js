@@ -13,13 +13,22 @@ module.exports = {
       passwordHash: value
     }
   },
-  response: (response, status, data, pagination) => {
-    const result = {}
+  response: (response, status, result, pagination) => {
+    var page = []
+    var data = {}
 
-    result.status = status || 200
-    result.result = data
+    if(pagination) {
 
-    return response.status(result.status).json(result)
+      for(var i = 1; i <= pagination.totalPages; i++){
+        page[i-1] = i
+      }
+      data.totalPages = page
+    }
+
+    data.status = status || 200
+    data.result = result
+
+    return response.status(data.status).json(data)
   },
   customErrorResponse: (response, status, message) => {
     const result = {}

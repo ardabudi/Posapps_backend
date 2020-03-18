@@ -28,13 +28,16 @@ module.exports = {
   },
   insertCategory: async (request, response) => {
     try {
+      // const categoryId = request.params.categoryId
       const data = {
+        // id,
         name: request.body.name,
         created_at: new Date(),
         updated_at: new Date()
       }
       const result = await categoryModel.insertCategory(data)
-      miscHelper.response(response, 200, result)
+      data.id=result.insertId
+      miscHelper.response(response, 200, data)
     } catch (error) {
       console.log(error)
       miscHelper.customErrorResponse(response, 404, 'Internal server error!')
@@ -48,7 +51,8 @@ module.exports = {
       }
       const categoryId = request.params.categoryId
       const result = await categoryModel.updateCategory(data, categoryId)
-      miscHelper.response(response, 200, result)
+      const newData = await categoryModel.getCatDetail(categoryId)
+      miscHelper.response(response, 200, newData[0])
     } catch (error) {
       console.log(error)
       miscHelper.customErrorResponse(response, 404, 'Internal server error!')

@@ -1,7 +1,7 @@
 const express = require('express')
 const Route = express.Router()
 
-const { productUpload } = require('../controllers/upload')
+// const { productUpload } = require('../controllers/upload')
 // const upload = require('../controllers/upload')
 // const { authentication, authorization } = require('../helpers/auth')
 
@@ -12,8 +12,9 @@ const {
 Route
   .get('/', getProducts)
   .get('/:productId', getDetail)
-  .post('/', productUpload, insertProducts)
-  .patch('/:productId', productUpload, updateProducts)
+  .post('/', insertProducts)
+  // .post('/', productUpload, insertProducts)
+  .patch('/:productId', updateProducts)
   .delete('/:productId', deleteProducts)
 
 module.exports = Route
