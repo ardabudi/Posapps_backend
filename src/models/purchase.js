@@ -9,14 +9,20 @@ module.exports = {
 					var price = result[0].price * data.stock
 
 					if (a == 0) { con.query(`INSERT INTO purchase SET ?, idBuyer='${data.idBuyer}', totalPayment=0`, date)}
+					
 					con.query(`UPDATE products SET stock = ${stock} WHERE id=${data.productId}`, (error, result) => {
-						if (error) reject(new Error(error))
-						const newP = result[0].tPrice
-						con.query(`UPDATE purchase SET totalPayment = ${newP} WHERE idBuyer='${data.idBuyer}'`, (error, result) => {
-							if (error) reject(new Error(error))
-							resolve(result)
-						})
-					})
+                        if (error) reject(new Error(error))
+                        con.query(`INSERT INTO purchase_detail SET ? , price = ${price}`, data, (error, result) => {
+                            con.query(`SELECT sum(price) as tPrice FROM purchase_detail WHERE idBuyer='${data.idBuyer}'`, (error, result) => {
+                                if (error) reject(new Error(error))
+                                const newP = result[0].tPrice
+                                con.query(`UPDATE purchase SET totalPayment = ${newP} WHERE idBuyer='${data.idBuyer}'`, (error, result) => {
+                                    if (error) reject(new Error(error))
+                                    resolve(result)
+                                })
+                            })
+                        })
+                    })
 				} else reject(new Error(error))
 			})
 		})
@@ -29,12 +35,22 @@ module.exports = {
 			})
 		})
 	},
-	detailPurchase:(idBuyer)=> {
-		return new Promise((resolve, reject) => {
-			con.query(`SELECT products.name as name, pd.stock as Qty, pd.price as Price FROM purchase_detail pd LEFT JOIN products on pd.productId = products.id WHERE pd.idBuyer = '${idBuyer}'`, (error, result) => {
-				if(error) reject(new Error(error))
-				resolve(result)
-			})
-		})
-	}
+	detailPurchase:(idBuyer)=>{
+        return new Promise((resolve, reject)=>{
+            con.query(`SELECT products.name as name, pd.stock as Qty, pd.price as Price, idBuyer as id FROM purchase_detail pd
+                LEFT JOIN products on pd.productId = products.id
+                WHERE pd.idBuyer = '${idBuyer}'`, (error, result)=>{
+                if(error) reject(new Error(error))
+                resolve(result)
+            })
+        })
+    },
+    lastWeekRecap:()=>{
+        return new Promise((resolve, reject)=>{
+            con.query(`SELECT SUM(totalPayment) as "totalPayment", date_added FROM purchase GROUP BY date_added ORDER BY date_added DESC LIMIT 7`, (error, result)=>{
+                if(error) reject(new Error(error))
+                resolve(result)
+            })
+        })
+    }
 }

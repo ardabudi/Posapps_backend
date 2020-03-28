@@ -4,7 +4,7 @@ const { buy, recap, detailPurchase } = require('../controllers/purchase')
 
 Route
 	.post('/', buy)
-	// .get('/', recap)
-	// .get('/:idBuyer', detailPurchase)
+	.get('/', recap)
+	.get('/:idBuyer', detailPurchase)
 
 module.exports = Route
