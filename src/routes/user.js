@@ -3,8 +3,6 @@ const Route = express.Router()
 
 const { register, login, users, deleteUser, updateUser } = require('../controllers/user')
 
-// const { authentication, authorization } = require('../helpers/auth')
-
 Route
   .post('/register', register)
   .post('/login', login)

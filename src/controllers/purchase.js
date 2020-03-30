@@ -13,7 +13,8 @@ module.exports = {
 			console.log(req.body)
 			await buy.products.map(e => {
 				const data = {
-					idBuyer: buy.idBuyer,
+					// idBuyer: buy.idBuyer,
+					idBuyer: idBuyer,
 					productId: e.productId,
 					stock: e.quantity
 				}

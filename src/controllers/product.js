@@ -55,7 +55,7 @@ module.exports = {
       const data = {
         name: request.body.name,
         description: request.body.description,
-        // image: `http://localhost:8001/uploads/${request.file.filename}`,
+        image: `http://localhost:8001/uploads/${request.file.filename}`,
         price: request.body.price,
         stock: request.body.stock,
         id_category: request.body.id_category,
@@ -72,6 +72,8 @@ module.exports = {
   },
   updateProducts: async (request, response) => {
     try {
+      // console.log('masuk sini')
+      // console.log(request.file)
       if(!request.file){
         const productId = request.params.productId
       const data = {
@@ -88,16 +90,18 @@ module.exports = {
       return miscHelper.response(response, 200, result[0])
       }
       const productId = request.params.productId
+      console.log(request.body)
       const data = {
         id: productId,
         name: request.body.name,
         description: request.body.description,
-        // image: `http://localhost:8001/uploads/${request.file.filename}`,
+        image: `http://localhost:8001/uploads/${request.file.filename}`,
         price: request.body.price,
         stock: request.body.stock,
         id_category: request.body.id_category,
         updated_at: new Date()
       }
+      
       await productModel.updateProducts(data, productId)
       const result = await productModel.getDetail(productId)
       miscHelper.response(response, 200, result[0])
