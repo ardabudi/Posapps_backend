@@ -80,7 +80,8 @@ module.exports = {
       const userId = req.params.userId
       const data = {
         name: req.body.name,
-        status: req.body.status
+        status: req.body.status,
+        email: req.body.email
       }
       await userModel.updateUser(data, userId)
       const result = await userModel.getDetail(userId)

@@ -10,7 +10,7 @@ module.exports = {
 
 			var a = 0
 			const idBuyer = uniqid();
-			console.log(req.body)
+			// console.log(req.body)
 			await buy.products.map(e => {
 				const data = {
 					// idBuyer: buy.idBuyer,

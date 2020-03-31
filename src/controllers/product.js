@@ -9,7 +9,6 @@ module.exports = {
       const searchName = request.query.name || ''
       const category = request.query.category || ''
       const sortBy = request.query.sortBy || 'id' 
-      // sortby
       const orderBy = request.query.orderBy || 'ASC'
 
       const pagination = {
@@ -24,14 +23,7 @@ module.exports = {
         totalPages
       }
       const result = await productModel.getProducts(searchName, pagination, category)
-
-      // const result = await productModel.getProducts(limit, activePage, searchName, sortBy, orderBy, category)
-      // const tData = await productModel.getProducts(1000, 1, searchName, 'id', 'ASC', cat)
-      // const tPage = Math.ceil(tData.length / limit)
-      // console.log(tPage)
-
       miscHelper.response(response, 200, result, pager)
-      // tPage
     } catch (error) {
       console.log(error)
       miscHelper.customErrorResponse(response, 404, 'Internal server error!')

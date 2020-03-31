@@ -3,7 +3,8 @@ const con = require('../configs/mysql')
 module.exports = {
 	buy: (data, a, date) => {
 		return new Promise((resolve, reject) => {
-			con.query(`SELECT * FROM products WHERE id= ${data.productId}`, (error, result) => {
+            con.query(`SELECT * FROM products WHERE id= ${data.productId}`, (error, result) => {
+                // console.log(result.length)
 				if (result.length > 0) {
 					var stock = result[0].stock - data.stock
 					var price = result[0].price * data.stock
