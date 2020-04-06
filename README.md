@@ -1,3 +1,5 @@
+<h1 align="center">Point of Sales</h1>
+<hr>
 <h1 align="center">ExpressJS - Posapps_backend App RESTfull API</h1>
 
 
@@ -14,7 +16,6 @@ Express.js is a web application framework for Node.js. [More about Express](http
 3. <a href="https://www.getpostman.com/">Postman</a>
 4. Web Server (ex. localhost)
 
-<h1 align="center">Point of Sales</h1>
 <hr id='#'>
 <h2>Table of Contents</h2>
 <ul>
