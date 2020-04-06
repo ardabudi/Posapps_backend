@@ -43,6 +43,17 @@ $ cd task-pos
 $ npm install
 ```
 
+## Set up .env file
+Open .env file on your favorite code editor, and copy paste this code below :
+```
+PORT=3000
+HOST=localhost
+USER=root // default
+PASS= // default
+DATABASE=note
+NODE_ENV=development node server.js
+```
+
 <hr>
 <h3 id='env'>Create Environment Variable</h3>
 
