@@ -38,7 +38,7 @@ POS-Apps-Backend_using-NodeJsandExpressJs
 <h3 id='clone'>Clone</h3>
 
 ```bash
-$ git clone https://github.com/sandirr/task-pos
+$ git clone https://github.com/ardabudi/Posapps_backend
 $ cd task-pos
 $ npm install
 ```
