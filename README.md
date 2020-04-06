@@ -14,12 +14,6 @@ Express.js is a web application framework for Node.js. [More about Express](http
 3. <a href="https://www.getpostman.com/">Postman</a>
 4. Web Server (ex. localhost)
 
-# Posapps_backend
-POS-Apps-Backend_using-NodeJsandExpressJs
-![](https://img.shields.io/badge/Code%20Style-Standard-yellow.svg)
-![](https://img.shields.io/badge/Dependencies-Express-green.svg)
-![](https://img.shields.io/badge/License-Beerware-yellowgreen.svg)
-
 <h1 align="center">Point of Sales</h1>
 <hr id='#'>
 <h2>Table of Contents</h2>
