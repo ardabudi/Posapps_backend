@@ -39,27 +39,20 @@ POS-Apps-Backend_using-NodeJsandExpressJs
 
 ```bash
 $ git clone https://github.com/ardabudi/Posapps_backend
-$ cd task-pos
+$ cd Posapps_backend
 $ npm install
 ```
 
 ## Set up .env file
 Open .env file on your favorite code editor, and copy paste this code below :
 ```
-PORT=3000
-HOST=localhost
-USER=root // default
-PASS= // default
-DATABASE=note
-NODE_ENV=development node server.js
-```
+PORT = 8001
 
-<hr>
-<h3 id='env'>Create Environment Variable</h3>
-
-```bash
-$ cp .env.example .env
-$ nano .env
+DB_HOST = 'localhost'
+DB_USER = 'root'
+DB_PASSWORD = ''
+DB_NAME = 'note'
+JWT_KEY = 'note'
 ```
 
 <hr>
