@@ -1,10 +1,21 @@
-# Posapps_backend
-POS-Apps-Backend_using-NodeJsandExpressJs
-![](https://img.shields.io/badge/Code%20Style-Standard-yellow.svg)
-![](https://img.shields.io/badge/Dependencies-Express-green.svg)
-![](https://img.shields.io/badge/License-Beerware-yellowgreen.svg)
-
 <h1 align="center">Point of Sales</h1>
+<hr>
+<h1 align="center">ExpressJS - Posapps_backend App RESTfull API</h1>
+
+
+
+Built with NodeJs using the ExpressJs Framework.
+Express.js is a web application framework for Node.js. [More about Express](https://en.wikipedia.org/wiki/Express.js)
+## Built With
+[![Express.js](https://img.shields.io/badge/Express.js-4.x-orange.svg?style=rounded-square)](https://expressjs.com/en/starter/installing.html)
+[![Node.js](https://img.shields.io/badge/Node.js-v.10.16-green.svg?style=rounded-square)](https://nodejs.org/)
+
+## Requirements
+1. <a href="https://nodejs.org/en/download/">Node Js</a>
+2. Node_modules
+3. <a href="https://www.getpostman.com/">Postman</a>
+4. Web Server (ex. localhost)
+
 <hr id='#'>
 <h2>Table of Contents</h2>
 <ul>
@@ -38,17 +49,21 @@ POS-Apps-Backend_using-NodeJsandExpressJs
 <h3 id='clone'>Clone</h3>
 
 ```bash
-$ git clone https://github.com/sandirr/task-pos
-$ cd task-pos
+$ git clone https://github.com/ardabudi/Posapps_backend
+$ cd Posapps_backend
 $ npm install
 ```
 
-<hr>
-<h3 id='env'>Create Environment Variable</h3>
+## Set up .env file
+Open .env file on your favorite code editor, and copy paste this code below :
+```
+PORT = 8001
 
-```bash
-$ cp .env.example .env
-$ nano .env
+DB_HOST = 'localhost'
+DB_USER = 'root'
+DB_PASSWORD = ''
+DB_NAME = 'note'
+JWT_KEY = 'note'
 ```
 
 <hr>
