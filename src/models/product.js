@@ -42,6 +42,8 @@ module.exports = {
   insertProducts: (data) => {
     return new Promise((resolve, reject) => {
       connection.query('INSERT INTO products SET ?', data, (error, result) => {
+      // connection.query('INSERT INTO products SET ?', data)
+      // connection.query('SELECT products.id, products.name, products.description, products.image, products.price, products.stock, category.name FROM products LEFT JOIN category ON products.id_category = category.id', (error, result) => {
         if (error) reject(new Error(error))
         resolve(result)
       })

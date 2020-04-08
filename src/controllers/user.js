@@ -1,18 +1,16 @@
 const userModel = require('../models/user')
-// const helper = require('../helpers/')
 const helper = require('../helpers')
 const JWT = require('jsonwebtoken')
-const {
-  JWT_KEY
-} = require('../configs')
+const { JWT_KEY } = require('../configs')
 
 module.exports = {
   users: async (req, res) => {
     try {
       const result = await userModel.getUsers()
+      // response.json(result)
       helper.response(res, 200, result)
     } catch (error) {
-      helpers.customErrorResponse(res, 404, 'Failed')
+      helper.customErrorResponse(res, 404, 'Failed')
     }
   },
   register: async (request, response) => {
@@ -29,6 +27,8 @@ module.exports = {
         updated_at: new Date()
       }
       const result = await userModel.register(data)
+      // data.userId = result.insertId
+      // response.json(data)
       helper.response(response, 200, result)
     } catch (error) {
       console.log(error)

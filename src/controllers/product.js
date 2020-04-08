@@ -55,7 +55,8 @@ module.exports = {
         updated_at: new Date()
       }
       const result = await productModel.insertProducts(data)
-      data.id=result.insertId
+      data.id = result.insertId
+      data.id_category === 1 ? data.category = 'Food' : data.category = 'Drink'
       miscHelper.response(response, 200, data)
     } catch (error) {
       console.log(error)
@@ -106,10 +107,8 @@ module.exports = {
     try {
       const productId = request.params.productId
       const result = await productModel.deleteProducts(productId)
-      const deleteData = {
-        id: parseInt(productId)
-      }
-      miscHelper.response(response, 200, deleteData)
+      // const deleteData = { id: parseInt(productId) }
+      miscHelper.response(response, 200, productId)
     } catch (error) {
       console.log(error)
       miscHelper.customErrorResponse(response, 404, 'Internal server error!')

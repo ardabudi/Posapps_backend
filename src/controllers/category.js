@@ -30,7 +30,6 @@ module.exports = {
     try {
       // const categoryId = request.params.categoryId
       const data = {
-        // id,
         name: request.body.name,
         created_at: new Date(),
         updated_at: new Date()
@@ -62,7 +61,7 @@ module.exports = {
     try {
       const categoryId = request.params.categoryId
       const result = await categoryModel.deleteCategory(categoryId)
-      miscHelper.response(response, 200, result)
+      miscHelper.response(response, 200, categoryId)
     } catch (error) {
       console.log(error)
       miscHelper.customErrorResponse(response, 404, 'Internal server error!')

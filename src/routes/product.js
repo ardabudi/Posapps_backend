@@ -9,7 +9,9 @@ const {
 Route
   .get('/', getProducts)
   .get('/:productId', getDetail)
+  // .post('/', insertProducts)
   .post('/', productUpload, insertProducts)
+  // .patch('/:productId', updateProducts)
   .patch('/:productId', productUpload, updateProducts)
   .delete('/:productId', deleteProducts)
 

@@ -12,12 +12,14 @@ module.exports = {
   register: (data) => {
     return new Promise((resolve, reject) => {
       connection.query('ALTER TABLE user AUTO_INCREMENT=0')
-      connection.query('INSERT INTO user SET ?', data, (error, result) => {
+      connection.query('INSERT INTO user SET ?', data)
+      connection.query('SELECT user.id, user.name, user.email, user.status FROM user', (error, result) => {
         if (error) reject(new Error(error))
         resolve(result)
       })
     })
   },
+  // connection.query('SELECT user.id, user.name, user.email, user.status FROM user', (error, result) => {
   checkEmail: (email) => {
     return new Promise((resolve, reject) => {
       connection.query('SELECT * FROM user WHERE email = ?', email, (error, result) => {

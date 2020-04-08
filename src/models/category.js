@@ -9,10 +9,10 @@ module.exports = {
       connection.query(`SELECT * FROM category WHERE name LIKE '%${searchName}%'
       ORDER BY ${sortBy} ${orderBy}
       LIMIT ${firstData},${limit}`,
-      (error, result) => {
-        if (error) reject(new Error(error))
-        resolve(result)
-      })
+        (error, result) => {
+          if (error) reject(new Error(error))
+          resolve(result)
+        })
     })
   },
   getCatDetail: (categoryId) => {
